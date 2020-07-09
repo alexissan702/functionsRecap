@@ -8,6 +8,7 @@ let pokeArray = [
   
   ];
 
+
   var display = document.getElementById("display");
   var pokeName = document.getElementById("name");
   var pokeImage = document.getElementById("pokemon");
@@ -20,12 +21,42 @@ let pokeArray = [
       if (index >= pokeArray.length) {
         index = 0;
       }
-      prePoke();
+      if (index>0){
+          var lastPokemon = document.getElementById("lastPokemon");
+          var prevName = document.getElementById("name");
+          var prevImage = document.getElementById("pokemon");
+          prePoke(); 
+      }
+      
   }
   function prePoke() {
+    prevName.innerHTML = pokeArray[index-1].name;
+      prevImage.src = pokeArray[index - 1].image;
+      newDiv = [];
+      newDiv += "<div class='mainContainer'>";
+      newDiv += prevName;
+      newDiv += prevImage;
+      newDiv += "</div>";
+      lastPokemon = newDiv[index];
+    }
+  /*function prePoke() {
       var newDiv = "";
-      newDiv.innerHTML = "<div>";
-      prexindex= index-1;
-      pokeName.innerHTML = pokeArray[preindex].name;
-      pokeImage.src = pokeArray[preindex].image;
+      //preindex = index - 1;
+      var prevName = document.getElementById("name");
+      var prevImage = document.getElementById("pokemon");
+      prevName.innerHTML = pokeArray[index-1].name;
+      prevImage.src = pokeArray[index - 1].image;
+      newDiv += "<div class='mainContainer'>";
+      newDiv += prevName;
+      newDiv += prevImage.src;
+      newDiv += "</div>";
+
   }
+   function prePoke() {
+    pokeName.innerHTML = pokeArray[index].name;
+    pokeImage.src = pokeArray[index].image;
+    index++;
+    if (index >= pokeArray.length) {
+      index = 0;
+    }  
+   }*/
