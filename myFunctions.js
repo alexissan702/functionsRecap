@@ -18,25 +18,23 @@ let pokeArray = [
   function run() {
     if (index > pokeArray.length-1) {
         index = 0;
-      }
-      if (index>0){
-          prePoke(); 
-      }
-      pokeName.innerHTML = pokeArray[index].name;
-      pokeImage.src = pokeArray[index].image;
-      index++;
-
-      
+    }
+    if (index>0){
+      prevPoke(); 
+    }
+    pokeName.innerHTML = pokeArray[index].name;
+    pokeImage.src = pokeArray[index].image;
+    index++;
   }
-  function prePoke() {
+  function prevPoke() {
     prevName.innerHTML = pokeArray[index-1].name;
-      prevImage.src = pokeArray[index - 1].image;
-      newDiv = '';
-      newDiv += "<div class='mainContainer'>";
-      newDiv += prevName;
-      newDiv += prevImage;
-      newDiv += "</div>";
-      lastPokemon.innerHTML = newDiv;
+    prevImage.src = pokeArray[index - 1].image;
+    newDiv = '';
+    newDiv += "<div class='mainContainer'>";
+    newDiv += prevName;
+    newDiv += prevImage;
+    newDiv += "</div>";
+    lastPokemon.innerHTML = newDiv;
     }
   /*function prePoke() {
       var newDiv = "";
