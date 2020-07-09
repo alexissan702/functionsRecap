@@ -12,32 +12,31 @@ let pokeArray = [
   var display = document.getElementById("display");
   var pokeName = document.getElementById("name");
   var pokeImage = document.getElementById("pokemon");
+  var lastPokemon = document.getElementById("lastPokemon");
   let index = 0;
   display.addEventListener("click", run);
   function run() {
-      pokeName.innerHTML = pokeArray[index].name;
-      pokeImage.src = pokeArray[index].image;
-      index++;
-      if (index >= pokeArray.length) {
+    if (index > pokeArray.length-1) {
         index = 0;
       }
       if (index>0){
-          var lastPokemon = document.getElementById("lastPokemon");
-          var prevName = document.getElementById("name");
-          var prevImage = document.getElementById("pokemon");
           prePoke(); 
       }
+      pokeName.innerHTML = pokeArray[index].name;
+      pokeImage.src = pokeArray[index].image;
+      index++;
+
       
   }
   function prePoke() {
     prevName.innerHTML = pokeArray[index-1].name;
       prevImage.src = pokeArray[index - 1].image;
-      newDiv = [];
+      newDiv = '';
       newDiv += "<div class='mainContainer'>";
       newDiv += prevName;
       newDiv += prevImage;
       newDiv += "</div>";
-      lastPokemon = newDiv[index];
+      lastPokemon.innerHTML = newDiv;
     }
   /*function prePoke() {
       var newDiv = "";
